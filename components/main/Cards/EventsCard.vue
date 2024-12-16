@@ -35,6 +35,16 @@ const props = defineProps({
             <h3 class="font-h3 event-card__title">
                 {{ title }}
             </h3>
+            <div class="event-card__date-icon-block" :class="{'no-main': img}">
+                <div class="event-card__date-block">
+                    <p class="font-text_caps event-card__date"
+                        v-for="(dateLine, index) 
+                        in date" 
+                        :key="index">
+                        {{ dateLine }}
+                    </p>
+                </div>
+            </div>
             <div class="event-card__text-block" :class="{'no-main': img}">
                 <div class="event-card__hashtag-block">
                     <p class="event-card__hashtag"
@@ -44,19 +54,9 @@ const props = defineProps({
                         {{ hashtagLine }}
                     </p>
                 </div>
-                <div class="event-card__date-icon-block" :class="{'no-main': img}">
-                    <div class="event-card__date-block">
-                        <p class="font-text_caps event-card__date"
-                            v-for="(dateLine, index) 
-                            in date" 
-                            :key="index">
-                            {{ dateLine }}
-                        </p>
-                    </div>
-                    <NuxtLink class="event-card__icon-link" to="https://calendar.google.com/calendar/u/0/r?pli=1">
-                        <IconCalendarPlus class="event-card__icon" />
-                    </NuxtLink>
-                </div>
+                <NuxtLink class="event-card__icon-link" to="https://calendar.google.com/calendar/u/0/r?pli=1">
+                    <IconCalendarPlus class="event-card__icon" />
+                </NuxtLink>
             </div>
         </div>
     </NuxtLink>
@@ -68,12 +68,13 @@ const props = defineProps({
 .event-card
     justify-content: center
     text-decoration: none
-    border-bottom: 2px solid #821bff
+    border-bottom: 2px solid $purple
     display: flex
     flex-direction: row
     gap: 60px
     padding: 20px
-    background: #000
+    background: $black
+    @include transition
 
 .event-card__img
     border-radius: 10px
@@ -82,32 +83,35 @@ const props = defineProps({
 
 .event-card__content
     display: flex
-    flex-direction: row
+    flex-direction: column
     justify-content: space-between
-    align-items: center
+    align-items: flex-start
     gap: 60px
 
 .event-card__title
-    width: 713px
+    width: auto
     color: $white
     @include transition
 
 .event-card__text-block
+    width: 100%
     display: flex
     flex-direction: row
+    justify-content: space-between
     gap: 60px
 
 .event-card__hashtag-block
     display: flex
     justify-content: center
-    flex-direction: column
+    flex-direction: row
     gap: 10px
 
 .event-card__hashtag
     width: 280px
-    color: $grey
+    color: $white
 
 .event-card__date-icon-block
+    width: 100%
     display: flex
     flex-direction: row
     justify-content: center
@@ -117,10 +121,12 @@ const props = defineProps({
 .event-card__date-block
     display: flex
     justify-content: center
-    flex-direction: column
+    align-items: center
+    flex-direction: column-reverse
     gap: 10px
 
 .event-card__date
+    text-align: center
     color: $white
     width: 130px
 
@@ -134,18 +140,19 @@ const props = defineProps({
     height: 32px
 
 .no-main
-    gap: 60px
+    gap: 20px
     .event-card__hashtag
-        width: 222px
+        width: auto
     .event-card__date
         width: 100px
     .event-card__title
-        width: 641px
+        width: auto
 
 @include hover
     .event-card:hover 
+        background: #281341
         .event-card__title
-            color: #821bff
+            color: $purple
 
 
 
@@ -156,7 +163,7 @@ const props = defineProps({
 
     .event-card:activer 
         .event-card__title
-            color: #821bff
+            color: $purple
 
     .event-card__img
         width: 214px
@@ -198,8 +205,6 @@ const props = defineProps({
         padding: 10px 0px
         flex-direction: column
         width: 325px
-    .event-card:active .event-card__title
-        color: $orange-bright
 
     .event-card__img
         width: 100%

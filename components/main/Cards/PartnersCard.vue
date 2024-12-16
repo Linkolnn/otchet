@@ -16,7 +16,7 @@ const props = defineProps(['img', 'url']);
     box-sizing: border-box
     border-radius: 20px
     background: $white
-    border: 1px solid $grey-medium
+    border: 1px solid $purple
     width: 224px
     height: 96px
     padding: 20px

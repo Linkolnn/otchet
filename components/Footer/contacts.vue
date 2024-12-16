@@ -19,7 +19,7 @@
   gap: 20px
   height: 95px
   .font-h4
-    color: $orange-bright
+    color: $white
     text-decoration: none
 
 @include laptop

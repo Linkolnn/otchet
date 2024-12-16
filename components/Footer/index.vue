@@ -18,6 +18,8 @@
 .footer
   display: flex
   width: 100%
+  box-sizing: border-box
+  padding: 0 40px
 
 .footer__container
   padding: 40px 40px 20px 40px

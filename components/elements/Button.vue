@@ -57,13 +57,13 @@ const buttonTypes = {
   flex-shrink: 0
   box-sizing: border-box
   border-radius: 10px
-  background: $orange-bright
+  background: $white
 
 .btn_primary:active
-  background: $grey-dark !important
+  background: $white !important
 
 .btn_primary.disabled
-  background: $grey !important
+  background: $white !important
 
 .btn_menu
   height: 40px
@@ -75,10 +75,10 @@ const buttonTypes = {
   background: $white
 .btn_menu:active
   color: $white !important
-  background: $orange-bright !important
+  background: $white !important
 .btn_menu.disabled
   color: $white !important
-  background: $grey-medium !important
+  background: $white !important
 .btn_secondary
   height: 40px
   padding: 0 15px 0 10px
@@ -95,7 +95,7 @@ const buttonTypes = {
     path
       @include transition
 .btn_secondary:active
-  background: $red
+  background: $white
   color: $white !important
   path[fill]
     fill: $white !important
@@ -106,7 +106,7 @@ const buttonTypes = {
   width: 20px
   height: 20px
   border-radius: 100%
-  border: 3px solid $red
+  border: 3px solid $white
   background: $white
   justify-content: center
   align-items: center
@@ -115,25 +115,25 @@ const buttonTypes = {
     width: 0
     transform: rotate(45deg)
     path[fill]
-      fill: $red
+      fill: $white
     path[stroke]
-      stroke: $red
+      stroke: $white
 .btn_arrow
   border-radius: 100%
   width: 50px
   height: 50px
   align-items: center
   justify-content: center
-  border: 2px solid $grey-medium
+  border: 2px solid $white
   background: transparent
   svg
     width: 32px
     height: 32px
     transform: rotate(0)
     path[fill]
-      fill: $grey-medium
+      fill: $white
     path[stroke]
-      stroke: $grey-medium
+      stroke: $white
 
 .btn_arrow-dark
   border-radius: 100%
@@ -141,7 +141,7 @@ const buttonTypes = {
   height: 50px
   align-items: center
   justify-content: center
-  background: $grey-dark
+  background: $white
   svg
     width: 32px
     height: 32px
@@ -162,7 +162,7 @@ const buttonTypes = {
     path
       @include transition
 .btn_play.disabled
-  background: $grey
+  background: $white
   path
     fill: $white !important
 
@@ -170,7 +170,7 @@ const buttonTypes = {
   border-radius: 100%
   width: 40px
   height: 40px
-  background-color: $orange-pastel
+  background-color: $white
   justify-content: center
   align-items: center
   svg
@@ -183,7 +183,7 @@ const buttonTypes = {
   gap: 10px
   align-items: center
   flex-direction: row-reverse
-  color: $grey
+  color: $white
   background: transparent
   svg
     @include transition
@@ -191,7 +191,7 @@ const buttonTypes = {
     height: 40px
     padding: 12px
     box-sizing: border-box
-    background-color: $grey-light
+    background-color: $white
     border-radius: 100%
     path
       @include transition
@@ -199,9 +199,9 @@ const buttonTypes = {
       height: 16px
 
 .btn_back:active
-  color: $orange-bright !important
+  color: $white !important
   svg
-    background: $orange-bright
+    background: $white
     outline: none !important
     path
       stroke: $white
@@ -212,27 +212,27 @@ const buttonTypes = {
   height: 60px
   align-items: center
   justify-content: center
-  border: 2px solid $grey-medium
+  border: 2px solid $white
   background: transparent
   svg
     width: 24px
     height: 24px
     path
-      stroke: $grey-medium
+      stroke: $white
 
 @include hover
   .btn_primary:hover
-    background: $red
+    background: $white
   .btn_menu:hover
-    background: $red
+    background: $white
     color: $white
   .btn_secondary:hover
-    color: $orange-bright
+    color: $white
     svg
       path[stroke]
-        stroke: $orange-bright
+        stroke: $white
       path[fill]
-        fill: $orange-bright
+        fill: $white
   .btn_border:hover
     width: 60px
     height: 60px
@@ -241,8 +241,8 @@ const buttonTypes = {
       height: 32px
       width: 32px
   .btn_arrow:hover
-    border: 2px solid $orange-bright
-    background: $orange-bright
+    border: 2px solid $white
+    background: $white
     svg
       transform: rotate(45deg)
       path[fill]
@@ -256,9 +256,9 @@ const buttonTypes = {
   .btn_play:hover
     svg
       path
-        fill: $red
+        fill: $white
   .btn_section:hover
-    background-color: $orange-bright
+    background-color: $white
     svg
       path
         stroke: $white
@@ -266,7 +266,7 @@ const buttonTypes = {
     background: $white
     color: $black
     svg
-      outline: 1px solid $red
+      outline: 1px solid $white
   .btn_slider:hover
     background: #821bff
     border: 2px solid #821bff
@@ -276,7 +276,7 @@ const buttonTypes = {
   .btn_border
     width: 20px
     height: 20px
-    border: 2px solid $red
+    border: 2px solid $white
     svg
       width: 15px
       height: 15px

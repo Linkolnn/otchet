@@ -1,11 +1,21 @@
 <script setup>
-import main_page from './pages/main.vue';
 </script>
 
+<!--<template>-->
+<!--  <div class="page-main">-->
+<!--    <main_page />-->
+<!--  </div>-->
+<!--</template>-->
+<!--В апп нужно импортповать NuxtPage, чтобы был роутинг. Здесь также следует разместить шапку и подвал сайта -->
 <template>
+<!--  вот тут шапка-->
+<!--  -->
+  <Header/>
   <div class="page-main">
-    <main_page />
+    <NuxtPage/>
   </div>
+  <Footer/>
+  <!--  вот тут подвал-->
 </template>
 
 <style lang="sass">
@@ -16,9 +26,13 @@ import main_page from './pages/main.vue';
 
 .page-main
   background: $white
-  padding: 20px 40px 0px 40px
-  > :not(:first-child, :last-child)
-    margin-bottom: 80px
+  padding: 0 40px
+  display: flex
+  flex-direction: column
+  gap: 50px
+  margin-bottom: 50px
+  //> :not(:first-child, :last-child)
+  //  margin-bottom: 80px
 
 body, html
   margin: 0

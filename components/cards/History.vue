@@ -1,27 +1,32 @@
 <script setup>
 const props = defineProps([
     "url",
-    "price",
+    "avg",
+    "raiting",
+    "impact",
     "img",
     "title",
+    "dignity",
     "date",
 ]);
-// span -> p
-// history-card in name of classes
-// alt
-// fonts import and usage
-// NuxtLink
 </script>
 
 <template>
     <NuxtLink :to="url" class="history-card">
-        <p class="history-card__text-price font-text_accent">{{ price }}</p>
+        <div class="history-card__statistic-block">
+            <p class="history-card__text-price font-text_accent">{{ avg }}</p>
+            <p class="history-card__text-price font-text_accent">{{ raiting }}</p>
+            <p class="history-card__text-price font-text_accent">{{ impact }}</p>
+        </div>
         <img class="history-card__img" :src="img" :alt="title">
         <div class="history-card__content">
             <h4 class="history-card__title font-h4">{{ title }}</h4>
-            <IconArrowCard class="history-card__icon" filled />
         </div>
         <p class="history-card__text-date font-text_large">{{ date }}</p>
+        <div class="history-card__text-icon-block">
+            <p class="history-card__text-dignity font-text_large">{{ dignity }}</p>
+            <IconArrowCard class="history-card__icon" filled />
+        </div>
     </NuxtLink>
 </template>
 <style lang="sass">
@@ -34,60 +39,47 @@ const props = defineProps([
     position: relative
     width: 395px
     height: 425px
-    
-    border-bottom: 2px solid #821bff
-    background: #000
+    padding: 10px
+    border-bottom: 2px solid $purple
+    background: $black
     display: flex
     flex-direction: column
     gap: 20px
-    padding: 30px
+    
     cursor: pointer
     @include transition
     *
         color: $white
 
-.history-card__text-price
-    box-sizing: border-box 
+.history-card__statistic-block
+    box-sizing: border-box
+    width: 100%
+    display: flex
+    align-content: flex-start
+    justify-content: space-between
     position: absolute
-    //z-index
     z-index: 1
-    top: 0
+    bottom: 180px
     left: 0
-    background: #000
-    padding: 20px     
+
+.history-card__text-price
+    position: relative
+    box-sizing: border-box 
+    z-index: 1
+    left: 0
+    background: $black
+    padding: 10px     
     border-radius: 15px
     @include transition
 
 .history-card__img
     object-fit: cover
     object-position: center
-    // position?
     width: 100%
     height: 221px
     border-radius: 20px
 
-.history-card__text-price:before
-    position: absolute
-    top: 30px
-    right: -16px
-    width: 16px
-    height: 16px
-    z-index: 1
-    content: ""
-    background: no-repeat url("/assets/icons/RoundedCornerForPictures.svg")
-
-.history-card__text-price:after
-    position: absolute
-    top: 64px
-    left: 30px
-    width: 16px
-    height: 16px
-    z-index: 1
-    content: ""
-    background: no-repeat url("/assets/icons/RoundedCornerForPictures.svg")
-
 .history-card__content
-    //flex
     display: flex
     flex-direction: row
     gap: 20px
@@ -101,13 +93,19 @@ const props = defineProps([
     -webkit-box-orient: vertical
     text-overflow: ellipsis 
 
+.history-card__text-icon-block
+    display: flex 
+    align-items: center
+    justify-content: space-between
+
 .history-card__icon
-    width: 40px
-    height: 40px
+    flex-shrink: 0
+    width: 60px
+    height: 60px
     path[fill]
-        fill: #821bff
+        fill: $purple
     path[stroke]
-        stroke: #821bff
+        stroke: $purple
     @include transition
 
 .history-card__text-date
@@ -117,7 +115,7 @@ const props = defineProps([
 @include hover
     .history-card:hover 
         .history-card__title
-            color: #821bff
+            color: $purple
         .history-card__icon
             transform: rotate(45deg)
 //transition & rotate
@@ -136,17 +134,13 @@ const props = defineProps([
 
     .history-card:active
         .history-card__title
-            color: #821bff
+            color: $purple
 
 @include mobile
     .history-card 
         height: 400px
         width: 280px
         padding: 20px
-
-    .history-card:active
-        .history-card__text-price 
-            color: $red
     
     .history-card__text-price
         padding: 15px

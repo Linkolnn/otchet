@@ -67,23 +67,21 @@ onUnmounted(() => {
 <template>
     <div class="history-slider__block">
         <div class="history-slider__btn-block">
-            <ElementsButton 
+            <IconArrowCard  
                 v-if="!isMobile || showPrev" 
-                class="history-slider__btn-left" 
+                class="history-slider__btn-left left" 
                 @click="prev" 
                 rotate-icon="true" 
                 type="slider"
-            >
-                <IconArrowCaret filled class="arrow-caret" />
-            </ElementsButton>
-            <ElementsButton 
+                filled
+            />
+            <IconArrowCard   
                 v-if="!isMobile || showNext" 
-                class="history-slider__btn-right" 
+                class="history-slider__btn-right right" 
                 @click="next" 
                 type="slider"
-            >
-                <IconArrowCaret filled class="arrow-caret" />
-            </ElementsButton>
+                filled
+            />
         </div>
         <Swiper
             class="history-slider"
@@ -126,6 +124,7 @@ onUnmounted(() => {
     .history-slider__btn-left,
     .history-slider__btn-right
         position: absolute
+        cursor: pointer
 
     .history-slider__btn-left
         left: 20px // Левая кнопка по умолчанию

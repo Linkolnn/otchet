@@ -26,10 +26,7 @@
     path
       @include transition
 @include hover
-  .social:hover
-    svg
-      path
-        fill: $orange-bright
+
 
 @include tablet
   .social

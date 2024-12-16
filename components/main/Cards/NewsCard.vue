@@ -23,9 +23,7 @@ const props = defineProps([
                     <IconCalendar class="news-card__date-icon" filled/>
                     <p class="news-card__date font-text_caps">{{ date }}</p>
                 </div>
-                <ElementsButton class="news-card__btn" type="arrow">
-                  <IconArrowCard filled class="arrow-card"/>
-                </ElementsButton>
+                <IconArrowCard class="news-card__btn arrow-card" filled/>
             </div>
         </div>
     </NuxtLink>
@@ -35,7 +33,7 @@ const props = defineProps([
 @import "@color"
 
 .news-card
-    
+    overflow: hidden
     text-decoration: none
     border-radius: 30px
     display: flex
@@ -50,38 +48,24 @@ const props = defineProps([
     object-fit: cover
     object-position: center
     border-radius: 30px 30px 0px 0px 
+    @include transition
 
 .news-card__text-block
-    border: 2px solid #821bff
+    border: 2px solid $purple
     // border-left: none
     display: flex
     flex-direction: column
     color: $white
-    gap: 20px
+    gap: 15px
     margin-top: -20px 
-    border-radius: 0px 30px 30px 30px
+    border-radius: 30px
     position: relative
     z-index: 1
+    padding: 20px
+    background: $black
 
-.news-card__text-block.white 
-        padding: 20px
-        background: #000
 // 0px
-.news-card__text-block.grey
-        padding: 40px 40px 20px 0px
-        background: $grey-light
 
-.news-card__text-block::before
-    position: absolute
-    top: -30px
-    left: -2px
-    width: 30px
-    height: 30px
-    z-index: 1 
-    content: ""
-    border-left: 2px solid #821bff
-    filter: drop-shadow(1px -2px 0px #821bff)
-    background: no-repeat url("/assets/icons/MainRoundedCornerForPictures.svg")
 
 .news-card__text
     white-space: normal
@@ -97,6 +81,8 @@ const props = defineProps([
     @include transition
 
 .news-card__btn
+    width: 60px
+    height: 60px
     @include transition
 
 .news-card__date-btn-block
@@ -108,7 +94,7 @@ const props = defineProps([
 .news-card__date-block
     display: flex
     flex-direction: row
-    color: $grey-medium
+    color: $white
     align-items: center
     gap: 10px
 
@@ -116,21 +102,20 @@ const props = defineProps([
     width: 24px
     height: 24px
     path[fill]
-        fill: $grey-medium
+        fill: $white
 
 @include hover
     .news-card:hover
-        .news-card__btn
-            border: 2px solid #821bff
-            background: #821bff
-            svg
-              transform: rotate(45deg)
-              path[fill]
-                fill: $white
-              path[stroke]
-                stroke: $white
+        .news-card__img
+            transform: scale(1.1)
+        .news-card__btn           
+            transform: rotate(45deg)
+            path[fill]
+              fill: $purple
+            path[stroke]
+              stroke: $purple
         .news-card__text
-            color: #821bff
+            color: $purple
 
 @include laptop
     .news-card

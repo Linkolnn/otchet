@@ -67,38 +67,37 @@ const prev = () => {
         :breakpoints="breakpoints"
     >
       <SwiperSlide v-for="(slide, index) in slides" :key="index">
+        <img class="welcome-slider__items-img" :src="slide.img" alt="">
         <h1 class="welcome-slider__items font-h1">
             {{ slide.title }}
         </h1>
       </SwiperSlide>
     </Swiper>
     <div class="welcome-slider__btn-counter-block">
-        <p class="welcome-slider__counter font-text_extra-large">
-            {{ currentSlide }} 
-            <span class="welcome-slider__counter-sd font-text_extra-large">
-               / {{ totalSlides }}
-            </span>
-        </p>
         <div class="welcome-slider__btn-block">
-            <ElementsButton 
-                class="welcome-slider__btn"
+            <IconArrowCard 
+                class="welcome-slider__btn left"
                 :class="{ 'disabled': !showPrev }"
                 @click="prev"
                 :disabled="!showPrev"
                 rotate-icon="true" 
                 type="slider"
-            >
-                <IconArrowCaret filled class="arrow-caret" />
-            </ElementsButton>
-            <ElementsButton 
-                class="welcome-slider__btn"
+                filled
+            />
+            <p class="welcome-slider__counter font-text_extra-large">
+                {{ currentSlide }} 
+                <span class="welcome-slider__counter-sd font-text_extra-large">
+                   / {{ totalSlides }}
+                </span>
+            </p>
+            <IconArrowCard  
+                class="welcome-slider__btn right"
                 :class="{ 'disabled': !showNext }"
                 @click="next"
                 :disabled="!showNext"
                 type="slider"
-            >
-                <IconArrowCaret filled class="arrow-caret" />
-            </ElementsButton>
+                filled
+            />
         </div>
     </div>
   </div>
@@ -130,7 +129,7 @@ const prev = () => {
     bottom: 0px
     left: 0px
     width: 790px
-    padding: 55px 60px 0px 60px 
+    padding: 55px 60px 20px 60px 
     display: flex
     align-items: center
     gap: 20px
@@ -156,21 +155,27 @@ const prev = () => {
     background: no-repeat url("/assets/icons/MainRoundedCornerWelcomeSlider.svg")
 
 .welcome-slider__btn-block
+    width: 100%
     display: flex
-    gap: 10px
+    align-items: center
+    justify-content: space-between
+    
+
 
 .welcome-slider__content
     box-sizing: border-box
     border-radius: 0px 0px 30px 33px
     padding: 0px 0px 0px 60px 
     position: absolute
-    background: #000
+    background: $black
     height: 100%
     width: 100%
 
     .swiper-slide
         box-sizing: border-box
         width: fit-content
+        display: flex
+        gap: 40px
 
 .welcome-slider__items
     width: 902px
@@ -178,35 +183,49 @@ const prev = () => {
     color: $white
     top: 160px
 
+.welcome-slider__items-img
+    border: 2px solid $purple
+    position: relative
+    border-radius: 30px
+    top: 80px
+    width: 500px
+    height: 400px
+
+
 .welcome-slider__counter-sd
-    color: $grey
+    color: $purple
 
 .welcome-slider__btn
-    svg
-        path[fill]
-            fill: $black
-        path[stroke]
-            stroke: $black
+    width: 60px
+    height: 60px
+    path[fill]
+        fill: $purple
+    path[stroke]
+        stroke: $purple
+.left
+        transform: rotate(225deg)
+
+.right
+        transform: rotate(45deg)
 
 .disabled
     border: none
     pointer-events: none
-    svg
-        path[fill]
-            fill: $grey-medium
-        path[stroke]
-            stroke: $grey-medium
+    path[fill]
+        fill: $white
+    path[stroke]
+        stroke: $white
 @include laptop
     .welcome-slider
         height: 606px
 
     .welcome-slider__items
         position: relative
-        top: 80px
+        top: 150px
         
     .welcome-slider__btn-counter-block
-        width: 572px
-        padding: 50px 60px 0px 60px 
+        width: 350px
+        padding: 20px  
 
 
 @include tablet 

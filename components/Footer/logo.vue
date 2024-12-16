@@ -31,7 +31,7 @@
   flex-direction: column
   gap: 12px
   p
-    color: $orange-bright
+    
     text-transform: uppercase
     font-family: 'Source-Sans-3' , sans-serif
     @include font-styles(17px, 400, 100%)
